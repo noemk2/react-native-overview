@@ -1,12 +1,12 @@
 // import { StatusBar } from 'expo-status-bar';
 import Main from "./src/components/Main";
-// import {  NativeRouter } from 'react-router-native'
+import { NativeRouter } from 'react-router-native'
 
 export default function App() {
   return (
-    // <NativeRouter>
+    <NativeRouter>
       <Main />
-    // </NativeRouter>
+    </NativeRouter>
 
   );
 }

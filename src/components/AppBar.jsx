@@ -1,30 +1,71 @@
-import { View, StyleSheet } from "react-native";
+
+import { View, StyleSheet } from 'react-native'
 // ViewPropTypes is decrepte
-import StyledText from "./StyledText";
-import Constans from "expo-constants";
-import theme from "../theme";
+import StyledText from './StyledText'
+import Constans from 'expo-constants'
+import theme from '../theme'
+import { Link, useLocation } from 'react-router-native'
+import { TouchableWithoutFeedback } from 'react-native'
+import { ScrollView } from 'react-native'
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: theme.appBar.primary, 
-        paddingTop: Constans.statusBarHeight + 10 , 
-        paddingBottom: 10,
-        paddingLeft: 10
-    } , 
-    text: {
-        color: theme.appBar.textPrimary
-    }
+  container: {
+    backgroundColor: theme.appBar.primary,
+    flexDirection: 'row',
+    paddingTop: Constans.statusBarHeight + 10,
+    paddingBottom: 10,
+    // paddingLeft: 10
+  },
+  scroll: {
+    paddingBottom: 15
+  },
+  text: {
+    color: theme.appBar.textSecondary,
+    paddingHorizontal: 10
+  },
+  active: {
+    color: theme.appBar.textPrimary,
+  }
 
 })
-const AppBar = () => {
-    return (
-        <View style={styles.container}>
-            <StyledText fontWeight='bold' style={styles.text}>
-                Repositories
-            </ StyledText>
+const AppBarTab = ({ children, to }) => {
+  const { pathname } = useLocation()
 
-        </View>
-    )
+  const active = pathname === to
+
+  const textStyles = [
+    styles.text,
+    active && styles.active
+  ]
+
+  return (
+    <Link to={to} component={TouchableWithoutFeedback}>
+      <StyledText fontWeight='bold' style={textStyles}>
+        {children}
+      </StyledText>
+    </Link>
+  )
 }
 
-export default AppBar 
+
+const AppBar = () => {
+
+  return (
+    <View style={styles.container} >
+      <ScrollView horizontal style={styles.scroll}>
+
+        <AppBarTab to='/'>
+          Repositories
+        </AppBarTab>
+        <AppBarTab to='/sigin'>
+          Sign In
+        </AppBarTab>
+
+       
+
+      </ScrollView>
+    </View>
+  )
+}
+
+export default AppBar
