@@ -1,17 +1,19 @@
 import { React } from "react";
-import Constans from "expo-constants";
-import { Text, View } from "react-native";
+// import { Text, View } from "react-native";
+import { View } from "react-native";
 import RepositoryList from "./RepositoryList";
+import AppBar from "./AppBar"
 
 
 const Main = () => (
     <View style={{
-        marginTop: Constans.statusBarHeight,
-        flexGrow: 1
+        flex : 1
     }}>
-        <Text >
+        {/* <Text >
             Rate repository Application
-        </Text>
+        </Text> */}
+
+          <AppBar/>
 
         <RepositoryList />
 
