@@ -1,9 +1,10 @@
 import { React } from "react";
 // import { Text, View } from "react-native";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import RepositoryList from "./RepositoryList";
 import AppBar from "./AppBar";
 import { Redirect, Route, Switch } from 'react-router-native'
+import LogInPage from "../pages/Login";
 
 const Main = () => (
   <View
@@ -17,7 +18,7 @@ const Main = () => (
         <RepositoryList />
       </Route>
       <Route path='/sigin' exact >
-        <Text>Working on it</Text>
+        <LogInPage />
       </Route>
       <Redirect to='/' />
     </Switch>

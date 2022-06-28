@@ -1,4 +1,4 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View, Platform } from "react-native";
 import StyledText from "./StyledText";
 import RepositoryStats from "./RepocitoryStats";
 import theme from "../theme";
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         // marginTop: 4,
         // marginBottom: 4, 
-        marginVertical: 4, 
+        marginVertical: 4,
         borderRadius: 5,
         overflow: 'hidden'
     },
